@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PYtoEXE - Home/Download</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  :root {
+    --bg-dark: #121217;
+    --bg-darker: #0d0d13;
+    --accent: #00ffc8;
+    --text-light: #e1e1e6;
+    --text-muted: #666a75;
+    --btn-bg: linear-gradient(135deg, #00ffc8, #009975);
+    --btn-hover: linear-gradient(135deg, #009975, #00ffc8);
+  }
+
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg-dark);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 980px;
+    background: var(--bg-darker);
+    margin: 40px 0;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,255,200,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: #06060a;
+    padding: 30px 40px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: var(--accent);
+    letter-spacing: 3px;
+  }
+
+  main {
+    padding: 30px 40px;
+    flex-grow: 1;
+  }
+
+  main section {
+    margin-bottom: 32px;
+  }
+
+  main section h2 {
+    border-left: 5px solid var(--accent);
+    padding-left: 15px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+
+  main section p {
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  main section p strong {
+    color: var(--text-light);
+  }
+
+  /* Botones principales */
+  .botones-container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .boton-descarga,
+  .boton-discord,
+  .boton-moretools {
+    flex: 1 1 200px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 16px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    color: var(--bg-dark);
+    background: var(--btn-bg);
+    box-shadow: 0 6px 14px rgba(0,255,200,0.6);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .boton-descarga:hover,
+  .boton-discord:hover,
+  .boton-moretools:hover {
+    background: var(--btn-hover);
+    box-shadow: 0 8px 24px rgba(0,255,200,0.9);
+  }
+
+  #soon-message {
+    margin-top: 15px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-align: center;
+    user-select: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+  }
+
+  #soon-message.visible {
+    opacity: 1;
+    max-height: 100px;
+  }
+
+  footer {
+    background: #06060a;
+    padding: 18px 40px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent);
+  }
+  .imagen-centro {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .imagen-centro img {
+    max-width: auto;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,255,200,0.3);
+  }
+
+  /* Responsive */
+  @media(max-width: 600px) {
+    header, main, footer {
+      padding: 20px 15px;
+    }
+
+    .boton-descarga,
+    .boton-discord,
+    .boton-moretools {
+      font-size: 1.3rem;
+      padding: 14px 30px;
+    }
+
+    .botones-container {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>PYtoEXE</h1>
+    </header>
+    <main>
+      <section>
+        <h2>¿Para qué sirve PYtoEXE?</h2>
+        <p><strong>PYtoEXE</strong> es una solución práctica y eficiente diseñada para desarrolladores, programadores y entusiastas del lenguaje Python que buscan distribuir sus aplicaciones de manera sencilla y profesional. Esta herramienta permite transformar scripts escritos en Python, comúnmente almacenados con la extensión <strong>.py</strong>, en archivos ejecutables nativos para el sistema operativo Windows, con extensión <strong>.exe</strong>.<br><br>Al convertir un script de Python en un ejecutable, <strong>PYtoEXE</strong> elimina la necesidad de que el usuario final tenga instalado Python o cualquier dependencia adicional para poder utilizar el programa. Esto facilita la distribución y ejecución de aplicaciones, especialmente en entornos donde la instalación de intérpretes o librerías puede resultar complicada o indeseable.<br><br>Además, <strong>PYtoEXE</strong> incorpora opciones para personalizar el archivo resultante, como la inclusión de iconos específicos, optimizando la presentación visual y profesionalismo de la aplicación final. Su uso está orientado a simplificar el flujo de trabajo del desarrollador, acelerando el proceso desde el código fuente hasta un producto listo para ser distribuido y ejecutado en cualquier computadora con Windows.<br><br>Esta herramienta representa una ventaja significativa para quienes desean compartir sus proyectos sin comprometer la compatibilidad o complicar la experiencia del usuario, proporcionando un método confiable y accesible para la generación de ejecutables a partir de código Python.</p>
+      </section>
+
+      <section>
+        <h2>¿Quién creó PYtoEXE?</h2>
+        <p>Este software fue desarrollado por <strong>CachorroMx (A.Tellez)</strong>, con la intención clara y firme de facilitar la vida a programadores y entusiastas del lenguaje Python globalmente.<br><br>Su propósito fundamental es simplificar el proceso de distribución de aplicaciones, eliminando las barreras técnicas que comúnmente dificultan compartir proyectos. De esta forma, busca permitir que más personas puedan compartir y utilizar sus programas de manera rápida, eficiente y profesional.<br><bCon esta herramienta, se promueve un entorno más accesible para desarrolladores de todos los niveles, brindando un método confiable para transformar código Python en aplicaciones listas para usarse sin complicaciones adicionales.</p>
+      </section>
+
+      <div class="imagen-centro">
+  <img src="imagen.png" alt="Imagen representativa de PYtoEXE" />
+</div>
+<br><br>
+
+<hr>
+      <br>
+      <section>
+        <h2>Actions</h2>
+        <div class="botones-container">
+          <a href="PYtoEXE.zip" class="boton-descarga" id="btnDownload">Download PYtoEXE</a>
+          <a href="https://discord.gg/hm8k3Cymsk" target="_blank" rel="noopener" class="boton-discord">Discord</a>
+          <button class="boton-moretools" id="btnMoreTools">More Tools</button>
+        </div>
+        <div id="soon-message">Soon...</div>
+      </section>
+    </main>
+    <footer>
+      &copy; 2025 PYtoEXE - Todos los derechos reservados | Diseñado por CachorroMx
+    </footer>
+  </div>
+
+  <script>
+    const btnMoreTools = document.getElementById('btnMoreTools');
+    const soonMsg = document.getElementById('soon-message');
+
+    btnMoreTools.addEventListener('click', () => {
+      soonMsg.classList.toggle('visible');
+    });
+
+    // El botón "Descargar ahora" y "Discord" abren el link directo o se pueden usar para ejecutar desde script, 
+    // pero aquí solo se manejan como links.
+  </script>
+</body>
+</html>
