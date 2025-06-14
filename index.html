@@ -18,13 +18,24 @@
   }
 
   body {
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     background: var(--bg-dark);
     font-family: 'Montserrat', sans-serif;
     color: var(--text-light);
     display: flex;
     justify-content: center;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
+  }
+
+  #particles-js {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
   }
 
   .container {
@@ -37,6 +48,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    z-index: 1;
+    position: relative;
   }
 
   header {
@@ -81,7 +94,6 @@
     color: var(--text-light);
   }
 
-  /* Botones principales */
   .botones-container {
     display: flex;
     gap: 24px;
@@ -132,14 +144,6 @@
     max-height: 100px;
   }
 
-  footer {
-    background: #06060a;
-    padding: 18px 40px;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    border-top: 2px solid var(--accent);
-  }
   .imagen-centro {
     display: flex;
     justify-content: center;
@@ -155,7 +159,54 @@
     box-shadow: 0 0 20px rgba(0,255,200,0.3);
   }
 
-  /* Responsive */
+  .tools-list {
+    margin-top: 20px;
+    padding: 0 20px 20px;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .tool-item {
+    background: #1a1a24;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,255,200,0.1);
+  }
+
+  .tool-item h3 {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font-size: 1.3rem;
+  }
+
+  .tool-item a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .tool-item a:hover {
+    color: var(--accent);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    background: #06060a;
+    padding: 18px 40px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent);
+  }
+
   @media(max-width: 600px) {
     header, main, footer {
       padding: 20px 15px;
@@ -175,11 +226,17 @@
 </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>PYtoEXE</h1>
-    </header>
-    <main>
+<div id="particles-js"></div>
+
+<a href="https://www.freecounterstat.com" title="page counter">
+  <img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=lbft1pu7jd19bfjr8mde28z1lxeh5eac" border="0" title="page counter" alt="page counter">
+</a>
+
+<div class="container">
+  <header>
+    <h1>PYtoEXE</h1>
+  </header>
+  <main>
       <section>
         <h2>¿Para qué sirve PYtoEXE?</h2>
         <p><strong>PYtoEXE</strong> es una solución práctica y eficiente diseñada para desarrolladores, programadores y entusiastas del lenguaje Python que buscan distribuir sus aplicaciones de manera sencilla y profesional. Esta herramienta permite transformar scripts escritos en Python, comúnmente almacenados con la extensión <strong>.py</strong>, en archivos ejecutables nativos para el sistema operativo Windows, con extensión <strong>.exe</strong>.<br><br>Al convertir un script de Python en un ejecutable, <strong>PYtoEXE</strong> elimina la necesidad de que el usuario final tenga instalado Python o cualquier dependencia adicional para poder utilizar el programa. Esto facilita la distribución y ejecución de aplicaciones, especialmente en entornos donde la instalación de intérpretes o librerías puede resultar complicada o indeseable.<br><br>Además, <strong>PYtoEXE</strong> incorpora opciones para personalizar el archivo resultante, como la inclusión de iconos específicos, optimizando la presentación visual y profesionalismo de la aplicación final. Su uso está orientado a simplificar el flujo de trabajo del desarrollador, acelerando el proceso desde el código fuente hasta un producto listo para ser distribuido y ejecutado en cualquier computadora con Windows.<br><br>Esta herramienta representa una ventaja significativa para quienes desean compartir sus proyectos sin comprometer la compatibilidad o complicar la experiencia del usuario, proporcionando un método confiable y accesible para la generación de ejecutables a partir de código Python.</p>
@@ -190,38 +247,81 @@
         <p>Este software fue desarrollado por <strong>CachorroMx (A.Tellez)</strong>, con la intención clara y firme de facilitar la vida a programadores y entusiastas del lenguaje Python globalmente.<br><br>Su propósito fundamental es simplificar el proceso de distribución de aplicaciones, eliminando las barreras técnicas que comúnmente dificultan compartir proyectos. De esta forma, busca permitir que más personas puedan compartir y utilizar sus programas de manera rápida, eficiente y profesional.<br><bCon esta herramienta, se promueve un entorno más accesible para desarrolladores de todos los niveles, brindando un método confiable para transformar código Python en aplicaciones listas para usarse sin complicaciones adicionales.</p>
       </section>
 
-      <div class="imagen-centro">
-  <img src="imagen.png" alt="Imagen representativa de PYtoEXE" />
-</div>
-<br><br>
+    <div class="imagen-centro">
+      <img src="imagen.png" alt="Imagen de PYtoEXE" />
+    </div>
 
-<hr>
-      <br>
-      <section>
-        <h2>Actions</h2>
-        <div class="botones-container">
-          <a href="PYtoEXE.zip" class="boton-descarga" id="btnDownload">Download PYtoEXE</a>
-          <a href="https://discord.gg/hm8k3Cymsk" target="_blank" rel="noopener" class="boton-discord">Discord</a>
-          <button class="boton-moretools" id="btnMoreTools">More Tools</button>
+    <hr><br>
+
+    <section>
+      <h2>Actions</h2>
+      <div class="botones-container">
+        <a href="PYtoEXE.zip" class="boton-descarga" id="btnDownload">Download PYtoEXE</a>
+        <a href="https://discord.gg/hm8k3Cymsk" target="_blank" rel="noopener" class="boton-discord">Discord</a>
+        <button class="boton-moretools" id="btnMoreTools">More Tools</button>
+      </div>
+      <div id="soon-message">Soon...</div>
+
+      <div id="tools-list" class="tools-list">
+        <div class="tool-item">
+          <h3>Security Scraper</h3>
+          <a href="https://ratalittleyt.github.io/SecurityScraperCachorroMx/">Redirigir al sitio</a>
+        </div><!--
+        <div class="tool-item">
+          <h3>Empaquetador de Recursos</h3>
+          <a href="#">Ir al Empaquetador</a>
         </div>
-        <div id="soon-message">Soon...</div>
-      </section>
-    </main>
-    <footer>
-      &copy; 2025 PYtoEXE - Todos los derechos reservados | Diseñado por CachorroMx
-    </footer>
-  </div>
+        <div class="tool-item">
+          <h3>Consola Interactiva Avanzada</h3>
+          <a href="#">Abrir Consola</a>
+        </div>-->
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 PYtoEXE - Todos los derechos reservados | Diseñado por CachorroMx
+  </footer>
+</div>
 
-  <script>
-    const btnMoreTools = document.getElementById('btnMoreTools');
-    const soonMsg = document.getElementById('soon-message');
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  const btnMoreTools = document.getElementById('btnMoreTools');
+  const soonMsg = document.getElementById('soon-message');
+  const toolsList = document.getElementById('tools-list');
 
-    btnMoreTools.addEventListener('click', () => {
-      soonMsg.classList.toggle('visible');
-    });
+  btnMoreTools.addEventListener('click', () => {
+    soonMsg.classList.toggle('visible');
+    toolsList.style.display = toolsList.style.display === 'flex' ? 'none' : 'flex';
+  });
 
-    // El botón "Descargar ahora" y "Discord" abren el link directo o se pueden usar para ejecutar desde script, 
-    // pero aquí solo se manejan como links.
-  </script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 75, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#00ffc8" },
+      "shape": { "type": "circle", "stroke": { "width": 0 }, "polygon": { "nb_sides": 5 } },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#00ffc8",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": { "enable": true, "speed": 2, "out_mode": "out" }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": { "enable": true, "mode": "repulse" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "repulse": { "distance": 100, "duration": 0.4 },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
 </body>
 </html>
